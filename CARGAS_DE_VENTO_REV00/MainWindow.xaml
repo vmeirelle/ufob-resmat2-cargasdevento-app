@@ -1,0 +1,246 @@
+﻿<Window x:Class="CARGAS_DE_VENTO_REV00.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CARGAS_DE_VENTO_REV00"
+        mc:Ignorable="d"
+        Title="Cargas de Vento" Height="882.667" Width="911" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="222*"/>
+            <RowDefinition Height="461*"/>
+            <RowDefinition Height="169*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="maxresdefault.jpg" Opacity="0.4"/>
+        </Grid.Background>
+
+        <Rectangle HorizontalAlignment="Left" Height="47" Margin="35,32,0,0" VerticalAlignment="Top" Width="849">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+            <Rectangle.Fill>
+                <SolidColorBrush Color="White" Opacity="0.6"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="171" Margin="35,98,0,0" Stroke="Black" VerticalAlignment="Top" Width="849" Grid.RowSpan="2"/>
+        <TextBox x:Name="vk" HorizontalAlignment="Left" Height="24" Margin="422,6,0,0" TextWrapping="Wrap" Text="Velocidade Característica (Vk)" TextAlignment="Center" VerticalAlignment="Top" Width="399" MouseDoubleClick="vk_click" Grid.Row="1"/>
+        <Button x:Name="calcular_vk" Content="Calcular Velocidade Característica (Vk) (m/s)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="368" Margin="49,6,0,0" Height="24" Click="click_calcular_vk" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="49,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"><Run Text="Velocidade Básica"/><Run Text=" ("/><Run Text="Vo"/><Run Text=")"/><Run Text=" (m/s)"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="v0" HorizontalAlignment="Left" Height="20" Margin="233,128,0,0" TextWrapping="Wrap" Text="Insira o valor" VerticalAlignment="Top" TextAlignment="Center" Width="158" MouseDoubleClick="v0_click"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="49,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"><Run Text="Fator Topográfico"/><Run Text=" (S"/><Run Text="¹"/><Run Text=")"/></TextBlock>
+        <TextBox x:Name="s1" MouseDoubleClick="s1_click" HorizontalAlignment="Left" Height="20" Margin="233,154,0,0" TextWrapping="Wrap" Text="Insira o valor ou selecione" VerticalAlignment="Top" TextAlignment="Center" Width="158" TextChanged="s1_TextChanged"/>
+        <CheckBox x:Name="a" Content="Terreno plano ou quase plano" HorizontalAlignment="Left" Height="20" Margin="396,154,0,0" VerticalAlignment="Top" Width="184" Checked="a_checked"/>
+        <CheckBox x:Name="c" Content="Vales Protegidos" HorizontalAlignment="Left" Height="20" Margin="709,154,0,0" VerticalAlignment="Top" Width="112" Checked="c_checked"/>
+        <CheckBox x:Name="b" Content="Taludes e Morros" HorizontalAlignment="Left" Height="20" Margin="585,154,0,0" VerticalAlignment="Top" Width="119" Checked="b_checked" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="49,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"><Run Text="Fator "/><Run Text="Rugosidade-Dimensão "/><Run Text="(S"/><Run Text="²"/><Run Text=")"/></TextBlock>
+        <TextBox x:Name="s2" MouseDoubleClick="s2_click" HorizontalAlignment="Left" Height="20" Margin="233,178,0,0" TextWrapping="Wrap" Text="Insira o valor ou calcule" VerticalAlignment="Top" TextAlignment="Center" Width="158" TextChanged="s2_TextChanged"/>
+        <CheckBox x:Name="sA" Content="A" HorizontalAlignment="Left" Height="20" Margin="-116,182,0,0" VerticalAlignment="Top" Width="32" Checked="sA_Checked"/>
+        <CheckBox x:Name="sB" Content="B" HorizontalAlignment="Left" Height="20" Margin="-116,218,0,0" VerticalAlignment="Top" Width="32" Checked="sB_Checked" Grid.RowSpan="2"/>
+        <CheckBox x:Name="sC" Content="C" HorizontalAlignment="Left" Height="20" Margin="-116,30,0,0" VerticalAlignment="Top" Width="32" Checked="sC_Checked" Grid.Row="1"/>
+        <Button x:Name="TABELA1" Content="?" HorizontalAlignment="Left" Height="20" Margin="567,178,0,0" VerticalAlignment="Top" Width="26" Click="show_tabela1"/>
+        <CheckBox x:Name="si" Content="I" HorizontalAlignment="Left" Height="20" Margin="-77,158,0,0" VerticalAlignment="Top" Width="29" Checked="si_Checked"/>
+        <CheckBox x:Name="sii" Content="II" HorizontalAlignment="Left" Height="20" Margin="-77,182,0,0" VerticalAlignment="Top" Width="29" Checked="sii_Checked"/>
+        <CheckBox x:Name="siii" Content="III" HorizontalAlignment="Left" Height="20" Margin="-77,206,0,0" VerticalAlignment="Top" Width="34" Checked="siii_Checked" Grid.RowSpan="2"/>
+        <CheckBox x:Name="siv" Content="IV" HorizontalAlignment="Left" Height="20" Margin="-77,4,0,0" VerticalAlignment="Top" Width="34" Checked="siv_Checked" Grid.Row="1"/>
+        <CheckBox x:Name="sv" Content="V" HorizontalAlignment="Left" Height="20" Margin="-79,30,0,0" VerticalAlignment="Top" Width="29" Checked="sv_Checked" Grid.Row="1"/>
+        <Button x:Name="TABELA2" Content="?" HorizontalAlignment="Left" Height="20" Margin="718,178,0,0" VerticalAlignment="Top" Width="26" Click="show_tabela2"/>
+        <TextBox x:Name="Z" MouseDoubleClick="z_click" HorizontalAlignment="Left" Height="20" Margin="749,178,0,0" TextWrapping="Wrap" Text="Z - Altura (m)" TextAlignment="Center" VerticalAlignment="Top" Width="72" FontSize="10" TextChanged="z_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="49,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Text="Fator Estatístico (S³)" Grid.RowSpan="2"/>
+        <TextBox x:Name="s3" MouseDoubleClick="s3_click" HorizontalAlignment="Left" Height="20" Margin="233,204,0,0" TextWrapping="Wrap" Text="Insira o valor ou selecione" VerticalAlignment="Top" TextAlignment="Center" Width="158" TextChanged="s3_TextChanged" Grid.RowSpan="2"/>
+        <CheckBox x:Name="i" Content="1" HorizontalAlignment="Left" Height="20" Margin="-50,157,0,0" VerticalAlignment="Top" Width="32" Checked="i_Checked"/>
+        <CheckBox x:Name="ii" Content="2" HorizontalAlignment="Left" Height="20" Margin="-50,181,0,0" VerticalAlignment="Top" Width="32" Checked="ii_Checked"/>
+        <CheckBox x:Name="iii" Content="3" HorizontalAlignment="Left" Height="20" Margin="-50,205,0,0" VerticalAlignment="Top" Width="32" Checked="iii_Checked" Grid.RowSpan="2"/>
+        <CheckBox x:Name="iv" Content="4" HorizontalAlignment="Left" Height="20" Margin="-50,3,0,0" VerticalAlignment="Top" Width="32" Checked="iv_Checked" Grid.Row="1"/>
+        <CheckBox x:Name="v" Content="5" HorizontalAlignment="Left" Height="20" Margin="-50,29,0,0" VerticalAlignment="Top" Width="32" Checked="v_Checked" Grid.Row="1"/>
+        <Button x:Name="TABELA3" Content="?" HorizontalAlignment="Left" Height="20" Margin="516,204,0,0" VerticalAlignment="Top" Width="26" Click="show_tabela3" Grid.RowSpan="2"/>
+        <ComboBox x:Name="abc" IsEditable="True" IsReadOnly="True" Text="Classe de Edificação" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="447,178,0,0" SelectionChanged="ComboBox_SelectionChanged" Height="20">
+            <ComboBoxItem>A</ComboBoxItem>
+            <ComboBoxItem>B</ComboBoxItem>
+            <ComboBoxItem>C</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="abc_Copy" IsEditable="True" IsReadOnly="True" Text="Categoria de Terreno" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="598,178,0,0" SelectionChanged="SEGUNDACAIXA" Height="20">
+            <ComboBoxItem Content="I"/>
+            <ComboBoxItem Content="II"/>
+            <ComboBoxItem Content="III"/>
+            <ComboBoxItem Content="IV"/>
+            <ComboBoxItem Content="V"/>
+        </ComboBox>
+        <Button Content="Calcular S²" FontSize="8" HorizontalAlignment="Left" Height="20" Margin="396,178,0,0" VerticalAlignment="Top" Width="46" Click="Button_Click8"/>
+        <ComboBox x:Name="abc_Copy1" IsEditable="True" IsReadOnly="True" Text="Uso da Edificação" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="396,204,0,0" SelectionChanged="SEGUNDACAIXA2" Height="20" Grid.RowSpan="2">
+            <ComboBoxItem Content="I"/>
+            <ComboBoxItem Content="II"/>
+            <ComboBoxItem Content="III"/>
+            <ComboBoxItem Content="IV"/>
+            <ComboBoxItem Content="V"/>
+        </ComboBox>
+        <Button x:Name="TABELA3_Copy" Content="Isopleta" HorizontalAlignment="Left" Height="20" Margin="396,128,0,0" VerticalAlignment="Top" Width="91" Click="show_tabela4"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="570,70,0,0" Stroke="Black" VerticalAlignment="Top" Width="314" Grid.Row="1"/>
+        <Label Content="Taludes e Morros
+               " HorizontalAlignment="Left" Height="26" Margin="573,70,0,0" VerticalAlignment="Top" Width="261" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="723,84,0,0" VerticalAlignment="Top" Width="98" Grid.Row="1">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFF4F4F5" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <CheckBox Content="Ponto A" Name="pontoa" HorizontalAlignment="Left" Height="16" Margin="586,102,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" Grid.Row="1"/>
+        <CheckBox Content="Ponto B" Name="pontob" HorizontalAlignment="Left" Height="16" Margin="672,102,0,0" VerticalAlignment="Top" Width="80" Checked="CheckBox_Checked" FontWeight="Bold" Grid.Row="1"/>
+        <CheckBox Content="Ponto C" Name="pontoc" HorizontalAlignment="Left" Height="16" Margin="754,102,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" Grid.Row="1"/>
+        <Button Content="Calcular" Name="taludcalc" HorizontalAlignment="Left" Height="35" Margin="710,130,0,0" VerticalAlignment="Top"  Width="111" Click="Button_Click" Grid.Row="1"/>
+        <TextBox  HorizontalAlignment="Left" Height="19" Margin="586,130,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="86" TextChanged="TextBox_TextChanged" Name="DDDddd" Grid.Row="1"/>
+        <Label Content="D" HorizontalAlignment="Left" Height="25" Margin="677,130,0,0" VerticalAlignment="Top" Width="23" FontFamily="Verdana" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Name="taludresul" Height="21" Margin="743,178,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Width="56" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="586,154,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="86" TextChanged="TextBox_TextChanged" x:Name="TTTttt" Grid.Row="1"/>
+        <Label Content="θº" HorizontalAlignment="Left" Height="26" Margin="677,157,0,0" VerticalAlignment="Top" Width="28" FontFamily="Verdana" Grid.Row="1"/>
+        <Label Content="Z" HorizontalAlignment="Left" Height="26" Margin="678,183,0,0" VerticalAlignment="Top" Width="28" FontFamily="Verdana" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="586,183,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="86" TextChanged="TextBox_TextChanged" x:Name="ZZZzzz" Grid.Row="1"/>
+        <Label Content="CARGAS DE VENTO" HorizontalAlignment="Left" Height="41" Margin="40,38,0,0" VerticalAlignment="Top" Width="660" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="24"/>
+        <Label Content="VELOCIDADE CARACTERÍSTICA " HorizontalAlignment="Left" Height="26" Margin="40,100,0,0" VerticalAlignment="Top" Width="251" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="293,111,0,0" VerticalAlignment="Top" Width="528">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFF4F4F5" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="24" Margin="710,175,0,0" VerticalAlignment="Top" Width="111" Stroke="Black" Grid.Row="1"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="95" Margin="36,70,0,0" Stroke="Black" VerticalAlignment="Top" Width="502" Grid.Row="1"/>
+        <Label Content="PRESSÃO DINÂMICA" HorizontalAlignment="Left" Height="26" Margin="52,73,0,0" VerticalAlignment="Top" Width="176" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="221,86,0,0" VerticalAlignment="Top" Width="304" Grid.Row="1">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFF4F4F5" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="calcular_vk_Copy" Content="Calcular Pressão Dinâmica (N/M2)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="239" Margin="49,104,0,0" Height="45" Click="CALCULARQ" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="45" Margin="293,104,0,0" VerticalAlignment="Top" Width="232" Stroke="Black" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="QQQ" Height="32" Margin="293,117,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Width="232" TextAlignment="Center" Grid.Row="1"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="95" Margin="36,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="502" Grid.Row="1"/>
+        <Label Content="PRESSÃO EFETIVA" HorizontalAlignment="Left" Height="26" Margin="40,178,0,0" VerticalAlignment="Top" Width="145" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16" Grid.Row="1"/>
+        <Button x:Name="calcularpressaumefetiva" Content="Calcular Pressão Efetiva (N/M²)
+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="179" Margin="49,209,0,0" Height="45" Click="CALCULARpe" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="233,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="41" TextChanged="TextBox_TextChanged" x:Name="cpi" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="279,229,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="40" TextChanged="TextBox_TextChanged" x:Name="cpe" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="45" Margin="324,209,0,0" VerticalAlignment="Top" Width="200" Stroke="Black" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="pressaumdinamicaum" Height="29" Margin="324,222,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Width="200" TextAlignment="Center" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="221,190,0,0" VerticalAlignment="Top" Width="303" Grid.Row="1">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFF4F4F5" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="169" Margin="35,287,0,0" Stroke="Black" VerticalAlignment="Top" Width="849" Grid.Row="1"/>
+        <Label Content="CARGA GLOBAL" HorizontalAlignment="Left" Height="26" Margin="49,296,0,0" VerticalAlignment="Top" Width="145" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="185,308,0,0" VerticalAlignment="Top" Width="682" Grid.Row="1">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="0.85"/>
+                    <GradientStop Color="#FFF4F4F5" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="calcularcarga" Content="Calcular Carga Global (N)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="269" Margin="418,411,0,0" Height="31" Click="eweeew" FontWeight="Bold" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="cargafinal" Height="20" Margin="713,416,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Width="146" TextAlignment="Center" RenderTransformOrigin="0.477,0.413" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal" HorizontalAlignment="Left" Height="31" Margin="692,411,0,0" VerticalAlignment="Top" Width="183" Stroke="Black" Grid.Row="1"/>
+        <Label Content="A (lado maior)" HorizontalAlignment="Left" Height="23" Margin="52,331,0,0" VerticalAlignment="Top" Width="108" FontFamily="Verdana" Grid.Row="1"/>
+        <TextBox x:Name="fa" HorizontalAlignment="Left" Height="20" Margin="165,334,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="108" Grid.Row="1"/>
+        <Label Content="B (lado menor)" HorizontalAlignment="Left" Height="23" Margin="52,358,0,0" VerticalAlignment="Top" Width="106" FontFamily="Verdana" Grid.Row="1"/>
+        <TextBox x:Name="fb" HorizontalAlignment="Left" Height="19" Margin="165,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="108" Grid.Row="1"/>
+        <Button Content="Calcular Ce" HorizontalAlignment="Left" Height="31" Margin="165,411,0,0" VerticalAlignment="Top" Width="107" Click="Button_Click_1" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy" HorizontalAlignment="Left" Height="20" Margin="285,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Label x:Name="ce1" Content="0" HorizontalAlignment="Left" Height="24" Margin="285,381,0,0" VerticalAlignment="Top" Width="62" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy4" HorizontalAlignment="Left" Height="20" Margin="682,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy5" HorizontalAlignment="Left" Height="20" Margin="748,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy6" HorizontalAlignment="Left" Height="20" Margin="616,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy7" HorizontalAlignment="Left" Height="20" Margin="550,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy8" HorizontalAlignment="Left" Height="20" Margin="484,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy9" HorizontalAlignment="Left" Height="20" Margin="418,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy10" HorizontalAlignment="Left" Height="20" Margin="352,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy11" HorizontalAlignment="Left" Height="20" Margin="814,386,0,0" VerticalAlignment="Top" Width="61" Stroke="Black" Grid.Row="1"/>
+        <Label Content="α = 90º" HorizontalAlignment="Left" Height="23" Margin="685,311,0,0" VerticalAlignment="Top" Width="63" FontFamily="Verdana" Grid.Row="1"/>
+        <Label Content="α = 0º" HorizontalAlignment="Left" Height="23" Margin="389,310,0,0" VerticalAlignment="Top" Width="53" FontFamily="Verdana" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy" Content="0" HorizontalAlignment="Left" Height="27" Margin="351,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy1" Content="0" HorizontalAlignment="Left" Height="27" Margin="416,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy2" Content="0" HorizontalAlignment="Left" Height="25" Margin="484,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy3" Content="0" HorizontalAlignment="Left" Height="27" Margin="550,381,0,0" VerticalAlignment="Top" Width="62" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy4" Content="0" HorizontalAlignment="Left" Height="27" Margin="617,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy5" Content="0" HorizontalAlignment="Left" Height="27" Margin="682,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy6" Content="0" HorizontalAlignment="Left" Height="27" Margin="748,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Label x:Name="ce1_Copy7" Content="0" HorizontalAlignment="Left" Height="27" Margin="814,381,0,0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="814,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" TextAlignment="Center" Grid.Row="1"><Run Text="C2 e "/><Run Text="D"/><Run Text="2"/></TextBlock>
+        <TextBox x:Name="a111" HorizontalAlignment="Left" Height="19" Margin="285,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="286,334,0,0" TextWrapping="Wrap" Text="A1 e B1" VerticalAlignment="Top" Width="60" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="351,334,0,0" TextWrapping="Wrap" Text="A2 e B2" VerticalAlignment="Top" Width="61" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="417,334,0,0" TextWrapping="Wrap" Text="C" VerticalAlignment="Top" Width="61" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="483,334,0,0" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" Width="62" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="551,334,0,0" TextWrapping="Wrap" Text="A3 e B3" VerticalAlignment="Top" Width="60" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="616,334,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="61" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="682,334,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="61" TextAlignment="Center" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="748,334,0,0" TextWrapping="Wrap" Text="C1 e D1" VerticalAlignment="Top" Width="61" TextAlignment="Center" Grid.Row="1"/>
+        <TextBox x:Name="a222" HorizontalAlignment="Left" Height="19" Margin="352,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a333" HorizontalAlignment="Left" Height="19" Margin="418,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a444" HorizontalAlignment="Left" Height="19" Margin="484,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a555" HorizontalAlignment="Left" Height="19" Margin="550,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a666" HorizontalAlignment="Left" Height="19" Margin="616,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a777" HorizontalAlignment="Left" Height="19" Margin="682,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a888" HorizontalAlignment="Left" Height="19" Margin="748,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <TextBox x:Name="a999" HorizontalAlignment="Left" Height="19" Margin="814,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" Grid.Row="1"/>
+        <Button Content="Calcular Áreas" HorizontalAlignment="Left" Height="31" Margin="58,411,0,0" VerticalAlignment="Top" Width="100" Click="Button_Clic98529k_1" Grid.Row="1"/>
+        <TextBox x:Name="caixa_da_altura" HorizontalAlignment="Left" Height="20" Margin="165,386,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="108" Grid.Row="1"/>
+        <ComboBox x:Name="escolhaa" HorizontalAlignment="Left" Height="31" Text="Escolha a Área" Margin="285,411,0,0" VerticalAlignment="Top" Width="127" SelectionChanged="ComboBox_SelectionChanged_1" FontStretch="SemiExpanded" Grid.Row="1">
+            <ComboBoxItem>A1 e B1</ComboBoxItem>
+            <ComboBoxItem>A2 e B2</ComboBoxItem>
+            <ComboBoxItem>C</ComboBoxItem>
+            <ComboBoxItem>D</ComboBoxItem>
+            <ComboBoxItem>A3 e B3</ComboBoxItem>
+            <ComboBoxItem>A</ComboBoxItem>
+            <ComboBoxItem>B</ComboBoxItem>
+            <ComboBoxItem>C1 e D1</ComboBoxItem>
+            <ComboBoxItem>C2 e D2</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Altura" HorizontalAlignment="Left" Height="23" Margin="52,383,0,0" VerticalAlignment="Top" Width="106" FontFamily="Verdana" Grid.Row="1"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="35,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="849" Grid.Row="2"/>
+        <Label Content="FORÇA DE ARRASTO" HorizontalAlignment="Left" Height="26" Margin="49,40,0,0" VerticalAlignment="Top" Width="145" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="16" Grid.Row="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="2" Margin="193,52,0,0" VerticalAlignment="Top" Width="682" Grid.Row="2">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="0.85"/>
+                    <GradientStop Color="#FFF4F4F5" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox x:Name="alturamedia" HorizontalAlignment="Left" Height="20" Margin="58,80,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="136" Grid.Row="2"/>
+        <Button Content="Exibir Tabela" HorizontalAlignment="Left" Height="20" Margin="199,80,0,0" VerticalAlignment="Top" Width="120" Grid.Row="2" Click="Button_Click_2"/>
+        <TextBox x:Name="cof1" HorizontalAlignment="Left" Height="18" Margin="324,82,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="131" Grid.Row="2"/>
+        <TextBox x:Name="cof2" HorizontalAlignment="Left" Height="18" Margin="460,82,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="142" Grid.Row="2"/>
+        <Button Content="Calcular (N)" HorizontalAlignment="Left" Height="18" Margin="608,82,0,0" VerticalAlignment="Top" Width="110" Grid.Row="2" Click="Button_Click_3"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="arrastado" Height="18" Margin="721,82,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Width="138" TextAlignment="Center" RenderTransformOrigin="0.477,0.413" Grid.Row="2"/>
+        <Label Content="Altura média vizinhos" HorizontalAlignment="Left" Height="22" Margin="52,58,0,0" VerticalAlignment="Top" Width="148" FontFamily="Verdana" Grid.Row="2"/>
+        <Label Content="Coeficiente de Arrasto" HorizontalAlignment="Left" Height="22" Margin="318,58,0,0" VerticalAlignment="Top" Width="144" FontFamily="Verdana" Grid.Row="2"/>
+        <Label Content="Área" HorizontalAlignment="Left" Height="22" Margin="460,58,0,0" VerticalAlignment="Top" Width="142" FontFamily="Verdana" Grid.Row="2"/>
+        <Rectangle x:Name="cargaglobal_Copy1" HorizontalAlignment="Left" Height="18" Margin="723,82,0,0" VerticalAlignment="Top" Width="136" Stroke="Black" Grid.Row="2"/>
+        <TextBox x:Name="cof2_Copy" HorizontalAlignment="Left" Height="18" Margin="199,105,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.Row="2"/>
+        <TextBox x:Name="cof2_Copy1" HorizontalAlignment="Left" Height="18" Margin="199,128,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.Row="2"/>
+        <Label Content="axh" HorizontalAlignment="Left" Height="23" Margin="149,102,0,0" VerticalAlignment="Top" Width="45" FontFamily="Verdana" Grid.Row="2"/>
+        <Label Content="bxh" HorizontalAlignment="Left" Height="23" Margin="149,123,0,0" VerticalAlignment="Top" Width="45" FontFamily="Verdana" Grid.Row="2"/>
+        <Button Content="CPI" HorizontalAlignment="Left" Height="20" Margin="233,209,0,0" VerticalAlignment="Top" Width="41" Click="Button_Click_4" Grid.Row="1"/>
+        <Button Content="CPE" HorizontalAlignment="Left" Height="18" Margin="279,209,0,0" VerticalAlignment="Top" Width="40" Click="Button_Click_5" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy2" HorizontalAlignment="Left" Height="42" Margin="285,315,0,0" VerticalAlignment="Top" Width="331" Stroke="Black" Grid.Row="1"/>
+        <Rectangle x:Name="cargaglobal_Copy3" HorizontalAlignment="Left" Height="42" Margin="621,315,0,0" VerticalAlignment="Top" Width="254" Stroke="Black" Grid.Row="1"/>
+
+
+
+    </Grid>
+</Window>
