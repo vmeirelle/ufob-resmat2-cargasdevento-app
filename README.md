@@ -17,7 +17,7 @@ This repository contains a Windows application for calculating wind loads in ste
 
 1. **Installation**:
    - Clone this repository to your local machine.
-   - Open the buil executable. 
+   - Open the build executable file. 
 2. **Usage**:
    - Build and run the application.
    - Input the required parameters.
